@@ -3,7 +3,7 @@ const express = require('express')
 const handlebars = require('express-handlebars').engine
 const morgan = require('morgan')
 const app = express()
-const port = 3000
+const port = 8080
 
 // render ra file tĩnh(ảnh, css,..)
 app.use(express.static(path.join(__dirname, 'public')))
@@ -21,11 +21,16 @@ console.log(path.join(__dirname))
 
 app.get('/', (req, res) => {
   return res.render('home');
-})
+});
 
 app.get('/news', (req, res) => {
   return res.render('news');
-})
+});
+
+app.get('/search', (req, res) => {
+  console.log(req.query)
+  return res.render('search');
+});
 
 // 127.0.0.1 - localhost
 app.listen(port, () => {
