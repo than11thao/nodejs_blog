@@ -28,7 +28,10 @@ app.get('/news', (req, res) => {
 });
 
 app.get('/search', (req, res) => {
-  console.log(req.query)
+  return res.render('search');
+});
+
+app.post('/search', (req, res) => {
   return res.render('search');
 });
 
