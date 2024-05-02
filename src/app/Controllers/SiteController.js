@@ -13,4 +13,4 @@ class SiteController {
     }
 }
 
-module.exports = new NewsController();
+module.exports = new SiteController();
