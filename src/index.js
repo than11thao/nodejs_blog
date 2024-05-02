@@ -5,6 +5,13 @@ const morgan = require('morgan')
 const app = express()
 const port = 8080
 
+// với dạng form có middleware như này 
+app.use(express.urlencoded({
+  extended: true
+}))
+// với dạng code gửi từ js lên
+app.use(express.json())
+
 // render ra file tĩnh(ảnh, css,..)
 app.use(express.static(path.join(__dirname, 'public')))
 
@@ -17,7 +24,7 @@ app.engine('hbs', handlebars({
 }));
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'resources/views'))
-console.log(path.join(__dirname))
+// console.log(path.join(__dirname))
 
 app.get('/', (req, res) => {
   return res.render('home');
@@ -32,7 +39,8 @@ app.get('/search', (req, res) => {
 });
 
 app.post('/search', (req, res) => {
-  return res.render('search');
+  console.log(req.body)
+  return res.send("");
 });
 
 // 127.0.0.1 - localhost
