@@ -2,6 +2,7 @@ const path = require('path')
 const express = require('express')
 const handlebars = require('express-handlebars').engine
 const morgan = require('morgan')
+const route = require('./routes')
 const app = express()
 const port = 8080
 
@@ -26,23 +27,9 @@ app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'resources/views'))
 // console.log(path.join(__dirname))
 
-app.get('/', (req, res) => {
-  return res.render('home');
-});
 
-app.get('/news', (req, res) => {
-  return res.render('news');
-});
-
-app.get('/search', (req, res) => {
-  return res.render('search');
-});
-
-app.post('/search', (req, res) => {
-  console.log(req.body)
-  return res.send("");
-});
-
+// Routes init
+route(app)
 // 127.0.0.1 - localhost
 app.listen(port, () => {
   console.log(`Example app listening on http://localhost:${port}`)
