@@ -8,7 +8,7 @@ const port = 8080;
 
 // với dạng form có middleware như này
 app.use(
-    express.urlencoded({
+      express.urlencoded({
         extended: true,
     }),
 );
@@ -19,10 +19,10 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // HTTP logger
-app.use(morgan('combined'));
+      app.use(morgan('combined'));
 
 // Template engine
-app.engine(
+      app.engine(
     'hbs',
     handlebars({
         extname: '.hbs',
@@ -34,7 +34,7 @@ app.engine(
 // console.log(path.join(__dirname))
 
 // Routes init
-route(app);
+    route(app);
 // 127.0.0.1 - localhost
 app.listen(port, () => {
     console.log(`Example app listening on http://localhost:${port}`);
