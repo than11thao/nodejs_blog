@@ -1,9 +1,6 @@
-
-
 class SiteController {
-
     // GET /news
-    index(req, res){
+    index(req, res) {
         return res.render('home');
     }
 
