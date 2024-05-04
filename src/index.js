@@ -2,9 +2,13 @@ const path = require('path');
 const express = require('express');
 const handlebars = require('express-handlebars').engine;
 const morgan = require('morgan');
-const route = require('./routes');
 const app = express();
 const port = 8080;
+const route = require('./routes');
+const db = require('./config/db');
+
+// Connect to DB
+db.connect();
 
 // với dạng form có middleware như này
 app.use(
