@@ -2,7 +2,7 @@ const express = require('express');
 const siteController = require('../app/Controllers/SiteController');
 const router = express.Router();
 
-router.use('/search', siteController.search);
-router.use('/', siteController.index);
+router.get('/search', siteController.search);
+router.get('/', siteController.index);
 
 module.exports = router;
