@@ -13,7 +13,7 @@ class SiteController {
             // .catch(err => next(err))
             .catch(next);
     }
-    // return res.render('home');
+
     // GET /news/:slug
     search(req, res) {
         return res.render('search');
