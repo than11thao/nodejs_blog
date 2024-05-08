@@ -2,6 +2,7 @@ const path = require('path');
 const express = require('express');
 const handlebars = require('express-handlebars').engine;
 const morgan = require('morgan');
+const methodOverride = require('method-override');
 const app = express();
 const port = 8080;
 const route = require('./routes');
@@ -19,6 +20,9 @@ app.use(
 // với dạng code gửi từ js lên
 app.use(express.json());
 
+// override with POST having ?_method=PUT
+app.use(methodOverride('_method'));
+
 // render ra file tĩnh(ảnh, css,..)
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -30,6 +34,9 @@ app.engine(
     'hbs',
     handlebars({
         extname: '.hbs',
+        helpers: {
+            sum: (a, b) => a + b,
+        },
     }),
 );
 app.set('view engine', 'hbs');
