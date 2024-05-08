@@ -10,7 +10,6 @@ const Course = new Schema(
         description: { type: String, maxLength: 600 },
         image: { type: String },
         videoId: { type: String, required: true },
-        image: { type: String },
         level: { type: String },
         slug: { type: String, slug: 'name', unique: true },
     },
